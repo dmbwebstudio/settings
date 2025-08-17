@@ -1,10 +1,14 @@
 {
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "explorer.confirmDelete": false,
     "window.newWindowProfile": "Default",
     "workbench.colorTheme": "Default Dark+",
-    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "workbench.statusBar.visible": false,
     "workbench.editor.empty.hint": "hidden",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "editor.minimap.enabled": false,
+    "editor.codeLens": false,
+    "explorer.compactFolders": false,
+    "explorer.confirmDelete": false,
     "explorer.fileNesting.patterns": {
         "*.ts": "${capture}.js",
         "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
@@ -51,5 +55,6 @@
         "**/node_modules": true,
         "**/Thumbs.db": true,
         "node_modules": true
-    }
+    },
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true
 }

@@ -14,6 +14,7 @@ set cursorline
 set showmatch
 set laststatus=2
 
+
 "++++++++++++++++++++++"
 "+ Indentation & Tabs +"
 "++++++++++++++++++++++"
@@ -40,6 +41,10 @@ set scrolloff=5
 set wildmenu
 set wildmode=longest:full,full
 
+set omnifunc=syntaxcomplete#Complete
+" Optional: nicer autocomplete navigation
+inoremap <expr> <C-y> pumvisible() ? "\<C-y>" : "\<C-n>"
+inoremap <expr> <C-e> pumvisible() ? "\<C-e>" : "\<Esc>"
 
 "+++++++++++++++"
 "+ by language +"
@@ -61,6 +66,13 @@ set ruler
 set title
 
 
+" Enable recursive search but avoid heavy dirs
+if &path !~ '\*\*'
+  set path+=**
+endif
+
+" Ignore huge dirs for speed
+set wildignore+=*/node_modules/*,*/_build/*,*/deps/*,*/.git/*,*/dist/*,*/build/*
 
 
 

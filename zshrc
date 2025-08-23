@@ -34,11 +34,11 @@ autoload -Uz colors && colors
 function zsh_prompt_info() {
     local exit_status=$?
     local cpu_load=$(uptime | awk -F'load average:' '{print $2}' | cut -d, -f1 | xargs)
-    local time_str="%F{cyan}$(date +'%H:%M')%f"   # HH:MM only
+    local today="%F{cyan}$(date +'* %d.%m / %a / %H:%M *')%f"
     local status_str=""
     [[ $exit_status -ne 0 ]] && status_str="%F{red}✗$exit_status%f"
     local cpu_str="%F{yellow}⏱$cpu_load%f"
-    echo "%{${time_str}%} %{${cpu_str}%} %{${status_str}%}"
+    echo "%{${today}%} %{${cpu_str}%} %{${status_str}%}"
 }
 # PROMPT character: $ for normal, # for root
 PROMPT='%{%B%}%{%F{yellow}%}%n@%m%{%f%} $(zsh_prompt_info)
@@ -115,7 +115,3 @@ alias gp='git push'
 if [ -f ~/.fzf.zsh ]; then
     source ~/.fzf.zsh
 fi
-
-# ===============================
-# Optional: Powerlevel10k Prompt (if installed)
-# ===============================
